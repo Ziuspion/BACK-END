@@ -5,4 +5,4 @@
 let anoAtual = 2026;
 let anoNascimento = 2010;
 let soma = anoAtual - anoNascimento;
-console.log(soma);
+console.log("A idade é: " + soma);
