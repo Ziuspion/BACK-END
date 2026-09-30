@@ -43,8 +43,20 @@ function dolarParaReal(valorDolar, cotacao){
 }
 console.log(dolarParaReal(0.50, 5.20).toFixed(2));
 
-// 4° - Aumento de saláriop
+// 4° - Aumento de salário (Você merece 25% de aumento)
 function aumentoS(atual, porcentagem){
     return atual * porcentagem;
 }
-console.log(aumentoS(1500, 1.20))
+console.log(aumentoS(1500, 1.25));
+
+// 5° - Verifique se é par ou impar?
+function parimpar(n) {
+    if (n % 2 === 0) {
+        return "O numero é par";
+    } else {
+        return "O numero é impar";
+    }
+}
+console.log(parimpar(4));
+console.log(parimpar(5));
+
