@@ -29,3 +29,22 @@
 function somar(a, b) {
     return a + b;
 }
+console.log(somar(5, 5))
+
+// 2° - Converter real para dólar
+function realParaDolar(valorReal, cotacao){
+    return valorReal / cotacao;
+}
+console.log(realParaDolar(10, 5.20). toFixed(2));
+
+// 3° - Coverter dólar para real
+function dolarParaReal(valorDolar, cotacao){
+    return valorDolar * cotacao;
+}
+console.log(dolarParaReal(0.50, 5.20).toFixed(2));
+
+// 4° - Aumento de saláriop
+function aumentoS(atual, porcentagem){
+    return atual * porcentagem;
+}
+console.log(aumentoS(1500, 1.20))
