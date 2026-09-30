@@ -82,7 +82,7 @@ if (dia === 1) {
 // "Sobrepeso"
 // "Obeso"
 
-let peso = 70;
+let peso = 200;
 let altura = 1.75;
 
 let imc = peso / (altura * altura);
