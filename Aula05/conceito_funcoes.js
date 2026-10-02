@@ -60,3 +60,10 @@ function parimpar(n) {
 console.log(parimpar(4));
 console.log(parimpar(5));
 
+
+function parOuImpar(numero){
+    return numero %2 === 0 ?"par" :"impar";
+    // se o resto for 0 --> retorna "par"
+    // Caso contrário --> retorna "impar"
+}
+console.log(parOuImpar(6));
