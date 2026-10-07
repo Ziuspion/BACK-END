@@ -3,7 +3,7 @@
 document.addEventListener("keydown", function(e){
     if (e.key === "r"){
         document.body.style.backgroundColor = "red"
-    } else if (e.key === "g"){
+    } else if (ekey === "g"){
         document.body.style.backgroundColor = "green"
     } else {
         document.body.style.backgroundColor = "blue"
