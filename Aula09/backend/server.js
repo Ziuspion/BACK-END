@@ -75,7 +75,6 @@ app.get("/api/cachorros/aleatorio", (req, res) => {
 // object.values pega os valores do objeto
 // flat transforma tudo em um único array 
 const todasAsFotos = Object.values(cachorros).flat();
-})
 
 // sorteia uma foto aleatória
 const item = sortear(todasAsFotos)
@@ -86,8 +85,8 @@ res.json({
     status: "success",
     // URL da imagem que foi sorteada
     message: `http://localhost:$(PORT)/fotos/$(item)`
-})
-
+});
+});
 // Rota 2 - Cachorro por raça
 // exemplo de acesso:
 // http://localhost:3000/api/cachorros/husky

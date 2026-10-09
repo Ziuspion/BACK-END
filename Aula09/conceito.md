@@ -10,3 +10,14 @@ npm install
 # Bibliotecas utilizadas
 Express - é uma framework muito utilizada para criação de servidores e APIs
 Cors - Mecanismo de segurança que permite o servidor informar quais origens pode acessar o recurso por meio de requisições.
+
+# Arrow Function =>
+// Função tradicional
+function somar(a, b){
+    return a + b;
+}
+
+// Arrow Function
+const somar = (a, b) => {
+    return a + b;
+}
