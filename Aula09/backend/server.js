@@ -20,7 +20,8 @@ const fs = require("fs")
 // Importa utilidades para trabalhar com caminhos de arquivos
 const path = require("path");
 // Importa o arquivo JSON que contém as raças e fotos
-const cachorros = require("./data/dogs.json")
+const cachorros = require("./data/dogs.json");
+const { log } = require("console");
 // cria a aplicação Express
 const app = express();
 // definir a porta onde o servidor vai funcionar
@@ -110,5 +111,24 @@ app.get("/api/cachorros/:raca", (req, res) => {
         // encerra a execução da rota
         return;
     }
+
+    // sortear uma foto da raça solicitada
+    const item = sortear(cachorros[raca]);
+
+    // retorna a reposta no JSON
+    res.json({
+        status: "success",
+        message: `http://localhost:$(PORT)/fotos/$(item)`
+    });
+});
+
+// ==================================================
+// Inicia o servidor
+// ==================================================
+
+// inicia o servidor express
+app.listen(PORT, () => {
+    console.log(`Servidor rodando em http://localhost:$(PORT)`);
+    console.log(`Coloque as fotos manualmente em: data/fotos/`);
     
 })
