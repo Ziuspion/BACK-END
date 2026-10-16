@@ -14,10 +14,10 @@ const banco = new DatabaseSync(path.join(__dirname, 'tarefas.db'));
 
 // Cria a table "tarefas" se ela ainda não existir
 banco.exec(`
-    Create taable if not exists tarefas(
-    id  integer primary key auto increment,
-    titulo  text not null,
-    concluida   integer defaut 0
+    Create table if not exists tarefas(
+    id integer primary key autoincrement,
+    titulo text not null,
+    concluida integer default 0
     )
 `);
 
@@ -47,7 +47,7 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // ==============================================================
 // POST /tarefas ---> salvar uma tarefa nova no banco de dados (sqlite)
-app.post('/tarfas', (requisição, resposta) =>{
+app.post('/tarefas', (requisição, resposta) =>{
     const titulo = requisição.body.titulo; //texto enviado pela página
 
     // se o título estiver, vazio, avisa que deu erro (400) e para aqui
@@ -83,6 +83,24 @@ app.put('/tarefas/:id', (requisicao, resposta) =>{
     const concluida = requisicao.body.concluida;        // 0 ou 1, enviado pela página
 
     // UPDATE: alterar a linha que tem o ID
-    banco.prepare('UPDATE tarefas SET concluida - ? WHERE id = ?').run(concluida, id);
+    banco.prepare('UPDATE tarefas SET concluida = ? WHERE id = ?').run(concluida, id);
     resposta.json({ ok: true});
+})
+
+// ================== APAGAR ======================
+// DELETE /tarefas/5 -----> apaga a tarefa de id 5
+app.delete('/tarefas/:id', (requisicao, resposta) =>{
+    const id = requisicao.params.id;
+
+    // DELETE: remove a linha que tem esse id
+    banco.prepare('DELETE FROM tarefas WHERE id = ?').run(id);
+
+    resposta.json({ ok: true});
+})
+
+// =========================================
+// Parte 5: Ligar o servidor
+// =========================================
+app.listen(3000, () => {
+    console.log('Servidor rodando em http://localhost:3000');
 })
